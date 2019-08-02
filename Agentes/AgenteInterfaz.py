@@ -1,7 +1,6 @@
 from spade.agent import Agent
 from spade.behaviour import CyclicBehaviour, OneShotBehaviour
 from spade.message import Message
-import gui
 
 class AgenteInterfaz(Agent):
     'Este comportamiento permite establecer un mensaje'
@@ -17,21 +16,20 @@ class AgenteInterfaz(Agent):
                 texto = msg.body
                 print(texto)
 
-    class enviaMensaje(OneShotBehaviour):
-
+    class enviarMensaje(OneShotBehaviour):
         async def run(self):
+            print("Comportamiento enviar mensaje se ejecutó")
             message = Message()
             message.sender = "agentehumano@404.city"
             message.to = "agenteinterprete@404.city"
             message.body = "Hello World"
             message.set_metadata("performative", "inform")
             await self.send(message)
-
-
+            print("Comportamiento terminado")
 
     async def setup(self):
-        print("Agente Humano en Ejecucion")
+        print("Agente Interfaz en Ejecucion")
         comportamiento = self.recibirMensaje()
-        interfaz = self.enviaMensaje(self)
+        comportamiento2 = self.enviarMensaje()
+        self.add_behaviour(comportamiento2)
         self.add_behaviour(comportamiento)
-        self.add_behaviour(interfaz)

@@ -13,7 +13,7 @@ class AgenteInterprete(Agent):
             if msg:
                 print("Mensaje recibido con contenido: {}".format(msg.body))
                 print("Se procesará el mensaje y se buscará una respuesta")
-                texto = msg.body
+                texto = str(msg.body)
                 respuesta = Interprete.interprete(texto)
 
                 #time.sleep()

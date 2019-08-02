@@ -1,7 +1,5 @@
 import time
 from Agentes import AgenteInterfaz, AgenteChat, AgenteInterprete
-from spade.message import Message
-import gui
 
 if __name__ == '__main__':
     Agente1 = AgenteChat.AgenteChat("agentechat@404.city", "123456")
@@ -14,12 +12,8 @@ if __name__ == '__main__':
     time.sleep(10)
     Agente2.start()
 
-    Agente1.web.start(hostname="127.0.0.1", port="10001")
-    Agente2.web.start(hostname="127.0.0.1", port="10002")
-    Agente2.web.start(hostname="127.0.0.1", port="10003")
-
-
     print("Para parar la ejecucion presione CRTL + c")
+
     while True:
         try:
             time.sleep(1)

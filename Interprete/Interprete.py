@@ -17,8 +17,9 @@ def interprete(mensaje):
     return respuesta
 
 def baseConocimiento():
-    #ESTA BASE DE CONOCIMIENTOS PUEDE SER APLIADA CON BIG DATA
-    Conocimientos = ["Hola World", "Hello World", "Hello Wuud"]
+    #ESTA BASE DE CONOCIMIENTOS PUEDE SER AMPLIADA CON BIG DATA
+    Conocimientos = ["Hola", "Hola como estas?", "Buenos dias", "Buenas tardes", "Buenas noches", "",
+                     ]
     return Conocimientos
 
 def pickAchoice(palabra, grados):

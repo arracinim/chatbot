@@ -11,7 +11,6 @@ class AgenteInterprete(Agent):
             # print("Comportamiento del Agente Interprete en Ejecucion")
             msg = await self.receive()
             if msg:
-                print("Agente interprete recibió la pregunta")
                 texto = str(msg.body)
                 respuesta = Interprete.interprete(texto)
 

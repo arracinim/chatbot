@@ -15,7 +15,6 @@ class AgenteChat(Agent):
                 mensaje.to = "agentehumano@404.city"
                 mensaje.set_metadata('performative','inform')
                 mensaje.body = respuesta
-
                 await self.send(mensaje)
 
     async def setup(self):

@@ -33,12 +33,13 @@ def baseConocimiento():
 def pickAchoice(palabra, grados):
     #SI LOS GRADOS DE PERTENENCIA ES MENOR A 70, QUIERE DECIR QUE NO HAY MUCHA CORRESPONDENCIA ENTRE LAS OPCIONES Y LA RESPUESTA
     #LAS RESPUESTAS PUEDEN SER AMPLIADAS BASADAS EN PREGUNTAS FRECUENTES EXTRAIDAS DIRECTAMENTE DE UNA PAGINA
-    if grados < 40:
+    print(str(palabra) + " " +str(grados))
+    if grados < 60:
         return "Esa pregunta se puede resolver en asesoría, M8A - 203"
     else:
         if(palabra == "Hola"):
             return "Hola, Como estás?"
-        elif(palabra == "Hola como estas?"):
+        elif(palabra == "Hola, ¿en que puedo ayudarte?"):
             return "Muy bien y tu. ¿En que puedo ayudarte?"
         elif(palabra == "Buenos dias"):
             return "Buenos dias, ¿En que puedo ayudarte?"

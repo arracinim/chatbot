@@ -1,47 +1,50 @@
 from spade.agent import Agent
 from spade.behaviour import CyclicBehaviour, OneShotBehaviour
 from spade.message import Message
+import time
 
 #VARIABLE GLOBAL
-pregunta = ""
+
 
 #CLAS DE AGENTE INTERFAZ
 class AgenteInterfaz(Agent):
-    'Este comportamiento permite establecer un mensaje'
-    class recibirMensaje (CyclicBehaviour):
+
+    class Mensaje(CyclicBehaviour):
         async def run(self):
+            #CADA VEZ QUE SE EJECUTA EL COMPORTAMIENTO LA PREGUNTA DEBE SER NULA, PARA QUE SE CUMPLA LA CONDICION
+            pregunta = ""
             #COMPORTAMIENTO SIEMPRE ESTÁ A LA ESPERA DE RECIBIR UN MENSAJE
-            msg = await self.receive()
+            msg = await self.receive(timeout=2)
+
             #SI RECIBE EL MENSAJE
             if msg:
                 #SE RECUPERA EL CUERPO DEL MENSAJE Y SE PROCEDE A ENVIAR EL MENSAJE
                 #AL AGENTE INTERPRETE PARA SU PROCESAMIENTO
                 texto = msg.body
                 print("Respuesta: " + texto)
-
-    class enviarMensaje(CyclicBehaviour):
-
-        async def run(self):
-            global pregunta
-            if pregunta:
-                ""
+            elif pregunta:
+                pass
             else:
+                #SE SOLICITA UNA PREGUNTA
                 print("Ingrese una pregunta")
                 pregunta = str(input())
-                message = Message()
-                message.sender = "agentehumano@404.city"
-                message.to = "agenteinterprete@404.city"
-                message.body = pregunta
-                message.set_metadata("performative", "inform")
-                await self.send(message)
-                pregunta = ""
 
-        async def on_end(self):
-            self.exit_code()
+                # SE ELABORA LA ESTRUCTURA DEL MENSAJE ACL
+                mensaje = Message()
+                mensaje.sender = "agentehumano@404.city"
+                mensaje.to = "agenteinterprete@404.city"
+                mensaje.body = pregunta
+                mensaje.set_metadata("performative", "inform")
+
+                #SE ENVIA EL MENSAJE
+                await self.send(mensaje)
 
     async def setup(self):
-        print("Agente Interfaz en Ejecucion")
-        comportamiento = self.recibirMensaje()
-        comportamiento2 = self.enviarMensaje()
+        print("Agente Interfaz en Ejecucion"+"\n")
+        print("YUCA CHATBOT IS RUNNING RIGHT NOW"+"\n")
+        comportamiento = self.Mensaje()
         self.add_behaviour(comportamiento)
-        self.add_behaviour(comportamiento2)
+
+
+
+

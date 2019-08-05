@@ -26,7 +26,6 @@ class AgenteInterfaz(Agent):
             message.body = "Pregunta: " + pregunta
             message.set_metadata("performative", "inform")
             await self.send(message)
-            print("Comportamiento terminado")
 
     async def setup(self):
         print("Agente Interfaz en Ejecucion")

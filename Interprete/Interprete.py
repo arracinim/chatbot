@@ -19,7 +19,7 @@ def interprete(mensaje):
 def baseConocimiento():
     #ESTA BASE DE CONOCIMIENTOS PUEDE SER AMPLIADA CON BIG DATA
     Conocimientos = ["Hola", "Hola como estas?", "Buenos dias", "Buenas tardes", "Buenas noches", "Buenas",
-                     "materias obligatorias?", "materias optativas?","Cuando puedo firmar o cambiarme de pensum",
+                     "materias que pasan a ser obligatorias?", "materias que pasan a optativas?","Cuando puedo firmar o cambiarme de pensum",
                      "Que debo hacer para cambiarme de pensum?","Cuantos creditos debo ver para graduarme?", "Cuantos creditos debo ver ahora?",
                      "Cuantos creditos de fundamentacion debo ver ahora?","Que fisicas son obligatorias", "Que materias pasan de libre eleccion a optativas",
                      "Cual es el prerequisito de Inteligencia Artificial?", "Cual es el prerequisito de sistemas multiagente","Cual es el prerequisito de fundamentos de programacion",
@@ -32,6 +32,7 @@ def baseConocimiento():
 
 def pickAchoice(palabra, grados):
     #SI LOS GRADOS DE PERTENENCIA ES MENOR A 70, QUIERE DECIR QUE NO HAY MUCHA CORRESPONDENCIA ENTRE LAS OPCIONES Y LA RESPUESTA
+    #LAS RESPUESTAS PUEDEN SER AMPLIADAS BASADAS EN PREGUNTAS FRECUENTES EXTRAIDAS DIRECTAMENTE DE UNA PAGINA
     if grados < 40:
         return "Esa pregunta se puede resolver en asesoría, M8A - 203"
     else:
@@ -47,10 +48,10 @@ def pickAchoice(palabra, grados):
             return "Buenas noches ¿En que puedo ayudarte?"
         elif(palabra == "Buenas"):
             return "Hola, ¿En que puedo ayudarte?"
-        elif(palabra == "materias obligatorias?"):
+        elif(palabra == "materias que pasan a ser obligatorias?"):
             return "Las materias que pasan a ser obligatorias son: Calidad de Software, Algebra Lineal, \n" \
                    "Introduccion al analisis de decisiones"
-        elif(palabra == "materias optativas?"):
+        elif(palabra == "materias que pasan a optativas?"):
             return "Las materias que ahora pasan a ser optativas son: Ecuaciones diferenciales"
         elif(palabra == "Cuando puedo firmar o cambiarme de pensum"):
             return "A partir del 2019-2"
@@ -72,7 +73,7 @@ def pickAchoice(palabra, grados):
             return "Algebra Lineal"
         elif(palabra == "Cual es el prerequisito de sistemas multiagente"):
             return "Introduccion a la Inteligencia Artificial"
-        elif(palabra == "materias que pasan a ser libre eleccion"):
+        elif(palabra == "materias pasan a libre eleccion"):
             return "Las materias que pasan a ser libre eleccion son: Electronica digital y Teoria de la gestion"
         elif(palabra == "donde puedo firmar para cambiarme de pensum"):
             return "En la oficinal M8A -205"

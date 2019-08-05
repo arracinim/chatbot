@@ -2,6 +2,9 @@ from spade.agent import Agent
 from spade.behaviour import CyclicBehaviour, OneShotBehaviour
 from spade.message import Message
 
+#VARIABLE GLOBAL
+pregunta = "cuando me puedo cambiar de pensum"
+
 class AgenteInterfaz(Agent):
     'Este comportamiento permite establecer un mensaje'
     class recibirMensaje (CyclicBehaviour):
@@ -10,19 +13,17 @@ class AgenteInterfaz(Agent):
             msg = await self.receive()
             #SI RECIBE EL MENSAJE
             if msg:
-                print("El agente Interfaz recibió recibió una respuesta")
                 #SE RECUPERA EL CUERPO DEL MENSAJE Y SE PROCEDE A ENVIAR EL MENSAJE
                 #AL AGENTE INTERPRETE PARA SU PROCESAMIENTO
                 texto = msg.body
-                print(texto)
+                print("Respuesta: "+texto)
 
     class enviarMensaje(OneShotBehaviour):
         async def run(self):
-            print("Comportamiento enviar mensaje se ejecutó")
             message = Message()
             message.sender = "agentehumano@404.city"
             message.to = "agenteinterprete@404.city"
-            message.body = "Hello World"
+            message.body = "Pregunta: " + pregunta
             message.set_metadata("performative", "inform")
             await self.send(message)
             print("Comportamiento terminado")

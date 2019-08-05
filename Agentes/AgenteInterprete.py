@@ -12,7 +12,6 @@ class AgenteInterprete(Agent):
             msg = await self.receive()
             if msg:
                 print("Mensaje recibido con contenido: {}".format(msg.body))
-                print("Se procesará el mensaje y se buscará una respuesta")
                 texto = str(msg.body)
                 respuesta = Interprete.interprete(texto)
 
@@ -28,7 +27,6 @@ class AgenteInterprete(Agent):
                 mensaje.body = respuesta
 
                 await self.send(mensaje)
-                print("Texto procesado correctamente, enviando al Agente Chat")
 
     # CONSTRUCTOR DEL AGENTE
     async def setup(self):

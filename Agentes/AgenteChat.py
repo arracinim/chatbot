@@ -17,7 +17,6 @@ class AgenteChat(Agent):
                 mensaje.body = respuesta
 
                 await self.send(mensaje)
-                print("Respuesta enviada correctamente")
 
     async def setup(self):
         print("Agente Chat en ejecucion")

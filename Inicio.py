@@ -7,19 +7,7 @@ if __name__ == '__main__':
     Agente3 = AgenteInterprete.AgenteInterprete("agenteinterprete@404.city", "123456")
 
     Agente1.start()
-    time.sleep(10)
+    time.sleep(5)
     Agente3.start()
-    time.sleep(10)
+    time.sleep(5)
     Agente2.start()
-
-    print("Para parar la ejecucion presione CRTL + c")
-
-    while True:
-        try:
-            time.sleep(1)
-        except KeyboardInterrupt:
-            Agente1.stop()
-            Agente2.stop()
-            Agente3.stop()
-            print("Se ha detenido el programa")
-            break;

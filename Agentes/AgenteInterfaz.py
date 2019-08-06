@@ -1,14 +1,9 @@
 from spade.agent import Agent
 from spade.behaviour import CyclicBehaviour, OneShotBehaviour
 from spade.message import Message
-import time
 
-#VARIABLE GLOBAL
-
-
-#CLAS DE AGENTE INTERFAZ
+#CLASS DE AGENTE INTERFAZ
 class AgenteInterfaz(Agent):
-
     class Mensaje(CyclicBehaviour):
         async def run(self):
             #CADA VEZ QUE SE EJECUTA EL COMPORTAMIENTO LA PREGUNTA DEBE SER NULA, PARA QUE SE CUMPLA LA CONDICION
@@ -44,7 +39,3 @@ class AgenteInterfaz(Agent):
         print("YUCA CHATBOT IS RUNNING RIGHT NOW"+"\n")
         comportamiento = self.Mensaje()
         self.add_behaviour(comportamiento)
-
-
-
-
